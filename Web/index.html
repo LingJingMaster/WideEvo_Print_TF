@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WideEvo - 富士打印机照片伪装工具</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>WideEvo</h1>
+            <p class="subtitle">富士打印机照片伪装工具</p>
+        </header>
+
+        <main>
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-icon">📷</div>
+                <p>拖拽照片到这里，或点击选择文件</p>
+                <p class="hint">支持 JPG、PNG、WebP 等格式</p>
+                <input type="file" id="fileInput" accept="image/*" multiple hidden>
+            </div>
+
+            <div class="options">
+                <label>
+                    <span>输出文件名前缀:</span>
+                    <input type="text" id="prefix" value="DSCF" maxlength="10">
+                </label>
+                <label>
+                    <span>起始编号:</span>
+                    <input type="number" id="startIndex" value="1" min="1" max="9999">
+                </label>
+            </div>
+
+            <div class="queue" id="queue"></div>
+
+            <div class="actions" id="actions" style="display: none;">
+                <button id="processBtn" class="btn primary">处理所有照片</button>
+                <button id="clearBtn" class="btn">清空列表</button>
+            </div>
+
+            <div class="results" id="results"></div>
+        </main>
+
+        <footer>
+            <p>所有处理均在浏览器本地完成，照片不会上传到服务器</p>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="exif-template.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
